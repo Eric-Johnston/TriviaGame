@@ -1,0 +1,23 @@
+body{
+    background-image: url("../images/oldworldmap.jpg");
+    background-size: cover;
+}
+.trivia-body{
+    position: absolute;
+    top: 15%;
+    left: 20%;
+    height: 150em;
+    width: 75em;
+    padding: 100px, 200px;
+    border: 2px solid black;
+    background-color: maroon;
+    background: rgba(128, 0, 0, 0.8);
+    color: antiquewhite;
+}
+.header{
+    text-align: center;
+}
+.header-logo{
+    position: relative;
+    opacity: 1;
+}

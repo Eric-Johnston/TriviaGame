@@ -6,7 +6,7 @@ body{
     position: absolute;
     top: 15%;
     left: 20%;
-    height: 150em;
+    height: 55em;
     width: 75em;
     padding: 100px, 200px;
     border: 2px solid black;
@@ -20,4 +20,10 @@ body{
 .header-logo{
     position: relative;
     opacity: 1;
+}
+#start{
+    margin-left: 42em;
+}
+.questions{
+    text-align: center;
 }

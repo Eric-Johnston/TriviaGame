@@ -6,8 +6,8 @@
     <title>Warhammer Trivia</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="assets/javascript/app.js"></script>
-    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
 </head>
 <body>
 <div class="container">
@@ -18,6 +18,38 @@
             </div>
             <h1>Warhammer Fantasy Trivia!</h1>
         </div>
+        <button id="start">Begin Trivia!</button>
+        <div id="time-left">60 seconds remaining!</div>
+        <form class="questions">
+            <div id="q1">
+                1. Who is the current reigning Emporer of Mankind?<br>
+                <input type="radio" class="false">Magnus the Pious
+                <input type="radio" class="true">Karl Franz
+                <input type="radio" class="false">Boris Todbringer
+                <input type="radio" class="false">Helman Ghorst
+            </div><br><br>
+            <div id="q2">
+                2. Who was the founder of the Empire of Man?<br>
+                <input type="radio" class="false">Giles le Breton
+                <input type="radio" class="false">Vladimir von Carstein
+                <input type="radio" class="true">Sigmar Heldenhammer
+                <input type="radio" class="false">Nagash
+            </div><br><br>
+            <div id="q3">
+                3. Who is the god of disease, decay, death, and dispair?<br>
+                <input type="radio" class="true">Nurgle
+                <input type="radio" class="false">Khaine
+                <input type="radio" class="false">Morr
+                <input type="radio" class="false">Asuryan
+            </div><br><br>
+            <div id="q4">
+                4. Louen Leoncoeur is the king of which human kingdom?<br>
+                <input type="radio" class="false">Kislev
+                <input type="radio" class="false">Estalia
+                <input type="radio" class="false">Tilea
+                <input type="radio" class="true">Bretonnia
+            </div>
+        </form>
     </div>
 </div>
 </body>

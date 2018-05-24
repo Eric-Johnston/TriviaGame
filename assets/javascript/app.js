@@ -58,6 +58,8 @@ $(document).ready(function(){
         $("#submit").show();
         showTime();
         gameTimer();
+        correctSoFar = 0;
+        incorrectSoFar = 0;
         });
 
     // Records correct answers

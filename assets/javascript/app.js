@@ -7,13 +7,13 @@ $(document).ready(function(){
     $("#submit").hide();
     
     // Global Variables
-    var timer = 35;
+    var timer = 45;
     var correctSoFar = 0;
     var incorrectSoFar = 0;
 
     // Game Timer Function
     function gameTimer(){
-        var seconds = 35;
+        var seconds = 45;
         clearInterval(timer)
         timer = setInterval(function(){
             seconds--;

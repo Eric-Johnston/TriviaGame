@@ -1,28 +1,72 @@
 $(document).ready(function(){
 
-$(".questions").hide();
+    //Hides elements on page load
+    $(".questions").hide();
+    $("#time-left").hide();
+    $("#done").hide();
+    $("#submit").hide();
+    
+    // Global Variables
+    var timer = 35;
+    var correctSoFar = 0;
+    var incorrectSoFar = 0;
 
-var timer = 10
+    // Game Timer Function
+    function gameTimer(){
+        var seconds = 35;
+        clearInterval(timer)
+        timer = setInterval(function(){
+            seconds--;
+            $("#time-left").text(seconds + " seconds remaining!")
+            $("#results").empty();
+            if(seconds == 0){
+                $(".questions").hide();
+                $("#time-left").hide();
+                $("#submit").hide();
+                $("#done").show();
+                $("#start").show();
+                clearInterval(timer);
+                clearInterval(seconds);
+                $("#results").html("<p>Correct answers: " + correctSoFar + "<p>Incorrect answers: " + incorrectSoFar)
+            }
+            else if($("#submit").click(function(){
+                clearInterval(timer);
+                clearInterval(seconds);
+                $(".questions").hide();
+                $("#time-left").hide();
+                $("#submit").hide();
+                $("#done").show();
+                $("#start").show();
+                $("#results").html("<p>Correct answers: " + correctSoFar + "<p>Incorrect answers: " + incorrectSoFar)
+            }));
+        }, 1000);
+    };
 
-function gameTimer(){
-    $("#time-left").html(timer + " Seconds remaining!")
-}
-var clockRunning = false;
-var correctAnswer = false;
-var incorrectAnswer = false;
-var correctSoFar = 0;
-var incorrectSoFar = 0;
+    // Function that updates the DOM with the time remaining
+    function showTime(){
+        $("#time-left").html(timer + " seconds remaining!")
+    }
 
-$("#start").click(function(){
-    $(".questions").show();
-    gameTimer();
-    var trivia = setTimeout(function(){
-        timer--;
+    // Begins trivia
+    $("#start").click(function(){
+        $("#results").empty();
+        $("input[type='radio']").prop('checked', false);
+        $("#start").hide();
+        $("#done").hide();
+        $(".questions").show();
+        $("#time-left").show();
+        $("#submit").show();
+        showTime();
         gameTimer();
-        if(timer == 0){
-            clearTimeout(timer)
-            alert("Times up!")
-        }
-    }, 1000);
-});
+        });
+
+    // Records correct answers
+    $("input[type='radio'][value='true']").click(function(){
+        correctSoFar++;
+    });
+
+    // Records incorrect answers
+    $("input[type='radio'][value='false']").click(function(){
+        incorrectSoFar++;
+    });
 }) 

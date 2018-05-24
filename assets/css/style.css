@@ -6,10 +6,10 @@ body{
     position: absolute;
     top: 15%;
     left: 20%;
-    height: 55em;
+    height: 52em;
     width: 75em;
     padding: 100px, 200px;
-    border: 2px solid black;
+    border: 3px solid black;
     background-color: maroon;
     background: rgba(128, 0, 0, 0.8);
     color: antiquewhite;
@@ -18,12 +18,27 @@ body{
     text-align: center;
 }
 .header-logo{
+    margin-top: 10px;
     position: relative;
     opacity: 1;
 }
 #start{
-    margin-left: 42em;
+    margin-left: 41.5em;
+}
+#time-left{
+    text-align: center;
+    font-size: 48px;
+    color: yellowgreen;
 }
 .questions{
+    text-align: center;
+}
+#submit{
+    margin-left: 42.5em;
+}
+#done{
+    text-align: center;
+}
+#results{
     text-align: center;
 }

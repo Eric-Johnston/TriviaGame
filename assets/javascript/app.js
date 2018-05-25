@@ -1,21 +1,22 @@
 $(document).ready(function(){
-
     //Hides elements on page load
     $(".questions").hide();
     $("#time-left").hide();
     $("#done").hide();
     $("#submit").hide();
+
     
     // Global Variables
     var timer = 45;
+    var timerID;
     var correctSoFar = 0;
     var incorrectSoFar = 0;
 
     // Game Timer Function
     function gameTimer(){
         var seconds = 45;
-        clearInterval(timer)
-        timer = setInterval(function(){
+        clearInterval(timerID)
+        timerID = setInterval(function(){
             seconds--;
             $("#time-left").text(seconds + " seconds remaining!")
             $("#results").empty();
@@ -25,12 +26,12 @@ $(document).ready(function(){
                 $("#submit").hide();
                 $("#done").show();
                 $("#start").show();
-                clearInterval(timer);
+                clearInterval(timerID);
                 clearInterval(seconds);
                 $("#results").html("<p>Correct answers: " + correctSoFar + "<p>Incorrect answers: " + incorrectSoFar)
             }
             else if($("#submit").click(function(){
-                clearInterval(timer);
+                clearInterval(timerID);
                 clearInterval(seconds);
                 $(".questions").hide();
                 $("#time-left").hide();
@@ -48,7 +49,8 @@ $(document).ready(function(){
     }
 
     // Begins trivia
-    $("#start").click(function(){
+    $("#start").click(function(event){
+        event.preventDefault();
         $("#results").empty();
         $("input[type='radio']").prop('checked', false);
         $("#start").hide();

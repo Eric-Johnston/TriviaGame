@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
     //Hides elements on page load
     $(".questions").hide();
     $("#time-left").hide();
@@ -6,12 +7,35 @@ $(document).ready(function(){
     $("#submit").hide();
 
     // Global Variables
-    var timer = 45;
     var seconds = 45;
-    var timerID;
+    var timer;
     var correctSoFar = 0;
     var incorrectSoFar = 0;
 
+    // This is a timer function
+    function gameTimer(){
+        var seconds = 45;
+        clearInterval(timer)
+        timer = setInterval(function(){
+            seconds--;
+            $("#time-left").text(seconds + " seconds remaining!")
+            $("#results").empty();
+            // If the timer reaches 0 seconds, the gameOver function initiates
+            if(seconds == 0){
+                gameOver();
+            }
+            // If the user clicks the submit button, the gameOver function initiates
+            else if($("#submit").click(function(){
+                gameOver();
+            }));
+        }, 1000);
+    };
+
+    // This function updates the DOM with the remaining time
+    function showTime(){
+        $("#time-left").html(seconds + " seconds remaining!")
+    };
+    
     // This function initiates the game
     function beginTrivia(){
         $("#results").empty();
@@ -27,14 +51,9 @@ $(document).ready(function(){
         incorrectSoFar = 0;
     };
 
-    // Function that updates the DOM with the time remaining
-    function showTime(){
-        $("#time-left").html(timer + " seconds remaining!")
-    }
-    
     // This function ends the game
     function gameOver(){
-        clearInterval(timerID);
+        clearInterval(timer);
         clearInterval(seconds);
         $(".questions").hide();
         $("#time-left").hide();
@@ -42,26 +61,8 @@ $(document).ready(function(){
         $("#done").show();
         $("#start").show();
         $("#results").html("<p>Correct answers: " + correctSoFar + "<p>Incorrect answers: " + incorrectSoFar)
-    }
-
-    // Game Timer Function
-    function gameTimer(){
-        var seconds = 45;
-        clearInterval(timerID)
-        timerID = setInterval(function(){
-            seconds--;
-            $("#time-left").text(seconds + " seconds remaining!")
-            $("#results").empty();
-            // If the timer reaches 0 seconds, the gameOver function initiates
-            if(seconds == 0){
-                gameOver();
-            }
-            // If the user clicks the submit button, the gameOver function initiates
-            else if($("#submit").click(function(){
-                gameOver();
-            }));
-        }, 1000);
     };
+
 
     // Begins trivia
     $("#start").click(function(event){

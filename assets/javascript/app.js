@@ -63,12 +63,11 @@ $(document).ready(function(){
         $("#results").html("<p>Correct answers: " + correctSoFar + "<p>Incorrect answers: " + incorrectSoFar)
     };
 
-
     // Begins trivia
     $("#start").click(function(event){
         event.preventDefault();
         beginTrivia();
-        });
+    });
 
     // Records correct answers
     $("input[type='radio'][value='true']").click(function(){
